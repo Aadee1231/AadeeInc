@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
 function App() {
+  const [msg, setMsg] = useState("");
+
+  const pingServer = async () => {
+    const res = await fetch(`${process.env.REACT_APP_API_BASE}/ping`);
+    const data = await res.json();
+    setMsg(data.message);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Aadee MultiAgent</h1>
+      <button onClick={pingServer}>Ping Backend</button>
+      {msg && <p>{msg}</p>}
     </div>
   );
 }
