@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import modal
 
-app = modal.App("aadee-chat-backend")
+app = modal.App("aadee-multiagent-backend")
 
 image = modal.Image.debian_slim().pip_install("fastapi[standard]")
 
