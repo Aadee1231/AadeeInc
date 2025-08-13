@@ -20,5 +20,5 @@ fastapi_app.add_middleware(
 @modal.concurrent(max_inputs=100)
 @modal.asgi_app()
 
-def servefastapi_app():
+def serve():
     return fastapi_app
